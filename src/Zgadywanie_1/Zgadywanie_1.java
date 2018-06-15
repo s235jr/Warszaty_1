@@ -12,10 +12,15 @@ public class Zgadywanie_1 {
         Random rand = new Random();
         int toFind = rand.nextInt(100) + 1;
 
+        check(toFind);
+    }
+
+    private static void check(int toFind) {
         System.out.println("Zgadnij liczbę!");
         Scanner scanner = new Scanner(System.in);
 
         int input = 0;
+
         try {
             do {
                 input = scanner.nextInt();
@@ -31,6 +36,7 @@ public class Zgadywanie_1 {
 
         } catch (InputMismatchException e) {
             System.out.println("Niepoprawny format liczby!");
+            check(toFind);
         }
     }
 }

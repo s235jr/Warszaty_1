@@ -9,22 +9,20 @@ public class Lotto {
 
     public static void main(String[] args) {
 
-        int[] table = generatePlayerValue();
+        int[] playerTable = generatePlayerValue();
         int[] randomTable = generateRandomTable();
 
-        System.out.println(Arrays.toString(table) + " - Tablica liczb gracza.");
+        System.out.println(Arrays.toString(playerTable) + " - Tablica liczb gracza.");
         System.out.println(Arrays.toString(randomTable) + " - Tablica wylosowanych liczb");
 
-        checkResult(table, randomTable);
+        checkResult(playerTable, randomTable);
     }
 
     private static int[] generatePlayerValue() {
         int[] table = new int[6];
 
         for (int i = 0; i < table.length; i++) {
-
             inputNumber(table, i);
-
         }
 
         Arrays.sort(table);
@@ -33,6 +31,7 @@ public class Lotto {
 
     private static void checkResult(int[] table, int[] randomTable) {
         int goodShot = 0;
+
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < randomTable.length; j++) {
                 if (table[i] == randomTable[j]) {
@@ -40,6 +39,7 @@ public class Lotto {
                 }
             }
         }
+
         if (goodShot >= 2) {
             System.out.println("Gracz trafił: " + goodShot + " razy!");
         }
@@ -49,17 +49,19 @@ public class Lotto {
 
         int[] randomTable = new int[6];
 
-
         for (int i = 0; i < randomTable.length; i++) {
             generateRandomValue(randomTable, i);
         }
+
         Arrays.sort(randomTable);
+
         return randomTable;
     }
 
     private static void generateRandomValue(int[] randomTable, int i) {
         Random rand = new Random();
         randomTable[i] = rand.nextInt(49) + 1;
+
         for (int j = 0; j < i; j++) {
             if (randomTable[i] == randomTable[j]) {
                 generateRandomValue(randomTable, i);
@@ -89,6 +91,5 @@ public class Lotto {
             System.out.println("Liczba poza dopuszczalnym zakresem!");
             inputNumber(table, i);
         }
-
     }
 }

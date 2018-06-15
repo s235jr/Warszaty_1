@@ -33,8 +33,5 @@ public class Zgadywanie_2 {
                     System.out.println("Chyba źle mi podpowiadasz!");
             }
         }
-
     }
-
-
 }
