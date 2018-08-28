@@ -1,9 +1,6 @@
 package Symulator_LOTTO;
 
-import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Lotto {
 
